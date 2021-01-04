@@ -1,24 +1,19 @@
-# tic-tac-toe
+# Vue实现井字棋游戏
+> 井字棋，英文名叫Tic-Tac-Toe，是一种在3*3格子上进行的连珠游戏，和五子棋类似，由于棋盘一般不画边框，格线排成井字故得名。
+---
+<br>
 
-## Project setup
-```
-npm install
-```
+## ***项目涵盖知识点***
+- vue-cli构建项目
+- 子传父  `$emit`
+- 父传子  `props`
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### ***目前已经实现的内容***
+- 基本的页面布局
+- 判断胜负方
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### ***目前尚未实现但即将实现的内容***
+- 页面的进一步美化
+- 背景音乐和游戏音效
+- 一键重置
+- 胜利即结束
