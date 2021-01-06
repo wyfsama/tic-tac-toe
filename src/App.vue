@@ -1,22 +1,25 @@
 <template>
   <div id="app">
-    <div class="container">
-     <div>第{{n}}回合</div>
+   <div class="container">
+     <div class="header">
+      <div class='count'>第{{n}}回合</div>
+     <button class='restart' @click="clear">重新开始</button>
+    </div>
      <div class="chess">
         <div class="row">
-          <Cell @click="greet(0,$event)" :n="n" />
-          <Cell @click="greet(1,$event)" :n="n" />
-          <Cell @click="greet(2,$event)" :n="n" />
+          <Cell @click="greet(0,$event)" :n="n" ref="db1"/>
+          <Cell @click="greet(1,$event)" :n="n" ref="db2"/>
+          <Cell @click="greet(2,$event)" :n="n" ref="db3"/>
         </div>
         <div class="row">
-          <Cell @click="greet(3,$event)" :n="n" />
-          <Cell @click="greet(4,$event)" :n="n" />
-          <Cell @click="greet(5,$event)" :n="n" />
+          <Cell @click="greet(3,$event)" :n="n" ref="db4"/>
+          <Cell @click="greet(4,$event)" :n="n" ref="db5"/>
+          <Cell @click="greet(5,$event)" :n="n" ref="db6"/>
         </div>
         <div class="row">
-          <Cell @click="greet(6,$event)" :n="n" />
-          <Cell @click="greet(7,$event)" :n="n" />
-          <Cell @click="greet(8,$event)" :n="n" />
+          <Cell @click="greet(6,$event)" :n="n" ref="db7"/>
+          <Cell @click="greet(7,$event)" :n="n" ref="db8"/>
+          <Cell @click="greet(8,$event)" :n="n" ref="db9"/>
         </div>
     </div>
     <div>结果：{{res===null?"胜负未分":`胜利者为${res}`}}</div>
@@ -44,6 +47,18 @@ export default {
     }
   },
   methods:{
+    clear(){
+       this.$refs.db1.text='';
+       this.$refs.db2.text='';
+       this.$refs.db3.text='';
+       this.$refs.db4.text='';
+       this.$refs.db5.text='';
+       this.$refs.db6.text='';
+       this.$refs.db7.text='';
+       this.$refs.db8.text='';
+       this.$refs.db9.text='';
+      // this.$refs.db.clearall()
+    },
     greet(i,text){
       this.n++;
       // console.log(`${i}被点了，内容为${text}`);
@@ -63,9 +78,6 @@ export default {
      {this.res = this.map[0][0]}
      if(this.map[0][2]!==null&&this.map[0][2]===this.map[1][1]&&this.map[1][1]===this.map[2][0])
      {this.res = this.map[0][2]}
-   },
-   clean(){
-     this.n=''
    }
   } 
 }
@@ -81,4 +93,17 @@ export default {
     justify-content: center;
     align-items: center;
   }
+  .chess{
+    padding: 1rem 0;
+  }
+   .restart{
+    display:block;
+  }
+  .header{
+    width: 302px;
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+
 </style>
